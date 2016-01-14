@@ -272,8 +272,6 @@
   \tudbeamer@calcsizes[0.175]%
 }
 
-%\setbeamercolor{progress bar}{fg=HKS41K80}
-%\setbeamercolor{progress bar progress}{use=progress bar,bg=progress bar.fg}
 \defbeamertemplate{headline}{tud header}{%
   \vbox to 0.125\paperheight{%
     \vskip\tudbeamer@logotopmargin
@@ -283,19 +281,27 @@
     \par
     \vfill
   }%
-  \usebeamercolor[fg]{upper separation line head}%
-  \rule{\paperwidth}{0.3pt}\par
-    \dimen0=\paperwidth
-    \multiply\dimen0 by \insertframenumber
-	\divide\dimen0 by \inserttotalframenumber
-	\edef\progressbarwidth{\the\dimen0}
-    \leavevmode%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=0.015\paperheight,dp=1ex]{progress bar}
-        \begin{beamercolorbox}[wd=\progressbarwidth,ht=0.015\paperheight, dp=1ex]{progress bar progress}
+  \dimen0=\paperwidth
+  \multiply\dimen0 by \insertframenumber
+  \divide\dimen0 by \inserttotalframenumber
+  \edef\progressbarwidth{\the\dimen0}
+  \multiply\dimen0 by -1
+  \advance\dimen0 by \paperwidth
+  \edef\progressleftbarwidth{\the\dimen0}
+  \leavevmode
+  \vskip0.01\paperheight
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.025\paperheight]{progress bar}
+    \begin{beamercolorbox}[wd=\progressbarwidth,ht=0.025\paperheight]{progress bar progress}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.025\paperheight]{progress bar}
+        \vskip0.3pt
+        \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.3pt]{progress bar left progress}
+        \end{beamercolorbox}
+        \vskip0.023\paperheight
+        \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.3pt]{progress bar left progress}
         \end{beamercolorbox}%
-    \end{beamercolorbox}
-  \usebeamercolor[fg]{lower separation line head}%
-  \rule{\paperwidth}{0.3pt}\par
+    \end{beamercolorbox}%
+  \end{beamercolorbox}
 }[action]{
   \tudbeamer@calcsizes[0.125]%
 }

@@ -5,7 +5,12 @@ corporate design inner theme]
 
 \mode<presentation>
 
-%\useinnertheme[shadow=true]{rounded}
+\setbeamertemplate{blocks}[squared]
+
+% round corners, no gradient for blocks
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+%\pgfdeclareverticalshading[lower.bg,upper.bg]{bmb@transition}{200cm}{%
+  %color(0pt)=(upper.bg); color(2pt)=(upper.bg); color(4pt)=(upper.bg)}
 
 % Faktor zur PPT-Vorlage: / 0,1984375      * 5,04
 \defbeamertemplate*{title page}{tud}{%
