@@ -257,7 +257,7 @@
   }%
   \usebeamercolor[fg]{upper separation line head/titlepage}%
   \rule{\paperwidth}{0.3pt}\par%
-  \vbox to 0.025\paperheight{\vskip 0pt plus 1 fil
+  \vbox to 0.025\paperheight{\vskip .5pt plus 1 fil
     \hskip\beamer@leftmargin%
     \usebeamertemplate*{einrichtung/titlepage}%
     \usebeamertemplate*{fachrichtung/titlepage}%
@@ -272,7 +272,8 @@
   \tudbeamer@calcsizes[0.175]%
 }
 
-
+%\setbeamercolor{progress bar}{fg=HKS41K80}
+%\setbeamercolor{progress bar progress}{use=progress bar,bg=progress bar.fg}
 \defbeamertemplate{headline}{tud header}{%
   \vbox to 0.125\paperheight{%
     \vskip\tudbeamer@logotopmargin
@@ -284,7 +285,15 @@
   }%
   \usebeamercolor[fg]{upper separation line head}%
   \rule{\paperwidth}{0.3pt}\par
-  \vskip0.015\paperheight
+    \dimen0=\paperwidth
+    \multiply\dimen0 by \insertframenumber
+	\divide\dimen0 by \inserttotalframenumber
+	\edef\progressbarwidth{\the\dimen0}
+    \leavevmode%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.015\paperheight,dp=1ex]{progress bar}
+        \begin{beamercolorbox}[wd=\progressbarwidth,ht=0.015\paperheight, dp=1ex]{progress bar progress}
+        \end{beamercolorbox}%
+    \end{beamercolorbox}
   \usebeamercolor[fg]{lower separation line head}%
   \rule{\paperwidth}{0.3pt}\par
 }[action]{
