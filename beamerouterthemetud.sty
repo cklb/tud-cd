@@ -278,6 +278,14 @@
     \hskip\tudbeamer@logoleftmargin%
     \usebeamercolor[fg]{logo}%
     \includegraphics[width=\tudbeamer@logowidth]{\logo@default}%
+    \hskip\tudbeamer@logoleftmargin%
+    \usebeamercolor[fg]{section in head/foot}%
+    \usebeamerfont{section in head/foot}%
+    \ifx\insertsection\empty
+      \strut\hfill
+    \else 
+      \arabic{section} - \insertsection\strut
+    \fi
     \par
     \vfill
   }%
