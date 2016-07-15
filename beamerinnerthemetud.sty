@@ -21,7 +21,7 @@ corporate design inner theme]
 		\inserttitle\par%
 	}
 	\ifx\insertsubtitle\empty
-		\vskip0.25em
+		\vskip0.5em
 	\else
 		\usebeamerfont*{subtitle}%
 		\usebeamercolor[fg]{subtitle}%
@@ -29,13 +29,11 @@ corporate design inner theme]
 	\fi%
 	\usebeamerfont*{author}%
 	\usebeamercolor[fg]{author/titlepage}%
-	\insertauthor\par
+	\insertauthor\par%
+	\vskip0.5em%
 	\usebeamerfont*{affiliation/titlepage}%
 	\usebeamercolor[fg]{affiliation/titlepage}%
-	{
-		\setlength{\parskip}{.0cm} 
-		\insertinstitute\par
-	}
+	\insertinstitute\par%
 	\usebeamerfont*{date in head/foot/titlepage}%
 	\usebeamercolor[fg]{date in head/foot/titlepage}%
 %	\usebeamerfont*{date/titlepage}%
