@@ -14,38 +14,33 @@ corporate design inner theme]
 
 % Faktor zur PPT-Vorlage: / 0,1984375      * 5,04
 \defbeamertemplate*{title page}{tud}{%
- 	\usebeamercolor{normal text/titlepage}%
-	\usebeamerfont{normal text/titlepage}%
-    \vfill%
-    {%
-		%\renewcommand\baselinestretch{1}%
-		\usebeamerfont*{title}%
-		\usebeamercolor[fg]{title}%
+	\usebeamerfont*{title}%
+	\usebeamercolor[fg]{title}%
+	{
 		\expandafter\setlength\expandafter\baselineskip{\f@size pt*\ratio{10pt}{10pt}}%
-		%\textsc{\inserttitle}\par%
-		%\MakeUppercase{\inserttitle}\par%
 		\inserttitle\par%
-    }\vfill%
-    {%
-		\ifx\insertsubtitle\empty
-		\else
-			\usebeamerfont*{subtitle}%
-			\usebeamercolor[fg]{subtitle}%
-			\insertsubtitle
-			\vfill
-		\fi%
-	}\vfill%
-  	{%
-		\usebeamerfont*{author}%
-		\usebeamercolor[fg]{author/titlepage}%
-		\insertauthor%
-  	}\vfill%
-  	{%
-		\usebeamerfont*{affiliation/titlepage}%
-		\usebeamercolor[fg]{affiliation/titlepage}%
-		\insertinstitute%
-  	}%
-    \vfill\vfill%
+	}
+	\ifx\insertsubtitle\empty
+		\vskip0.25em
+	\else
+		\usebeamerfont*{subtitle}%
+		\usebeamercolor[fg]{subtitle}%
+		\insertsubtitle\par
+	\fi%
+	\usebeamerfont*{author}%
+	\usebeamercolor[fg]{author/titlepage}%
+	\insertauthor\par
+	\usebeamerfont*{affiliation/titlepage}%
+	\usebeamercolor[fg]{affiliation/titlepage}%
+	{
+		\setlength{\parskip}{.0cm} 
+		\insertinstitute\par
+	}
+	\usebeamerfont*{date in head/foot/titlepage}%
+	\usebeamercolor[fg]{date in head/foot/titlepage}%
+%	\usebeamerfont*{date/titlepage}%
+%	\usebeamercolor[fg]{date/titlepage}%
+	\insertdatecity, \insertdate\par%
 }
 
 \AtBeginDocument{\setbeamertemplate{title page}[tud]}

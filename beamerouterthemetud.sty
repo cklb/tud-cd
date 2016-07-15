@@ -327,10 +327,10 @@
       \ifx\@tempa\empty
       \else
         \@tempa
-        \ifx\insertdate\empty\else, %
+        \ifx\insertshortdate\empty\else, %
         \fi
       \fi
-      \insertdate
+      \insertshortdate
     %}%
     \strut
   }%
@@ -437,19 +437,13 @@
 
 
 \defbeamertemplate{footline}{tud titlepage}{%
-%  \vfill
+   \vfill
    \hbox to \textwidth{%
      \hskip\beamer@leftmargin
        \usebeamerfont*{date in head/foot/titlepage}%
        \usebeamercolor[fg]{date in head/foot/titlepage}%
-       \insertdatecity
-       \ifx\insertdatecity\empty
-       \else
-         \ifx\insertdate\empty
-         \else,
-         \fi
-       \fi
-       \insertdate%
+	   %\insertdatecity
+	   %\insertdate
        \strut
      \hskip 0pt plus 1 fil\relax
      \if@ddcfooter
