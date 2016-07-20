@@ -2,7 +2,8 @@
 
 
 % TODO param of tudscrfonts changed to cdmath=False
-\DeclareOptionBeamer{noeulermath}{\PassOptionsToPackage{noeulermath}{tudscrfonts}}
+%\DeclareOptionBeamer{noeulermath}{\PassOptionsToPackage{noeulermath}{tudscrfonts}}
+\DeclareOptionBeamer{cdmath}{\PassOptionsToPackage{cdmath}{tudscrfonts}}
 
 % TODO param of tudscrfonts changed to cdfont=False
 \newif\if@noDIN\@noDINfalse
@@ -19,6 +20,7 @@
 }
 
 
+% TODO identify the difference betwen cdmath and serif math
 \newif\if@sansmath\@sansmathtrue
 \DeclareOptionBeamer{serifmath}{%
   \@sansmathfalse

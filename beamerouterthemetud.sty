@@ -283,8 +283,19 @@
     \usebeamerfont{section in head/foot}%
     \ifx\insertsection\empty
       \strut\hfill
-    \else 
-      \arabic{section} - \insertsection\strut
+	\else 
+		\arabic{section}~- \insertsection\strut
+		\ifx\insertsubsection\empty
+			\strut\hfill
+		\else
+			\hfill\insertsubsection\hspace{1em}
+		\fi
+		%\ifx\insertframetitle\empty
+		%	\strut\hfill
+		%\else
+		%	: \insertsubsection\strut
+		%	: \insertframetitle\strut
+		%\fi
     \fi
     \par
     \vfill
