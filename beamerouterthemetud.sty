@@ -22,6 +22,9 @@
 \newif\if@useNavBar\@useNavBarfalse
 \DeclareOptionBeamer{navbar}{\@useNavBartrue}
 
+\newif\if@rst
+\DeclareOptionBeamer{rst}{\@rsttrue}
+
 \newif\if@umit
 \DeclareOptionBeamer{umit}{\@umittrue}
 
@@ -254,6 +257,11 @@
     \if@umit
         \hfill
         \includegraphics[height=0.282\tudbeamer@logowidth]{logo_umit_4c_white}%
+        \hskip\beamer@rightmargin\hbox{}%
+    \fi
+    \if@rst
+        \hfill
+        \includegraphics[height=0.282\tudbeamer@logowidth]{rst-logo_white}%
         \hskip\beamer@rightmargin\hbox{}%
     \fi
     \vskip 0pt plus 1 fil\relax
