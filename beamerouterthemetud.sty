@@ -288,7 +288,10 @@
     \vskip\tudbeamer@logotopmargin
     \hskip\tudbeamer@logoleftmargin%
     \usebeamercolor[fg]{logo}%
-    %\includegraphics[width=\tudbeamer@logowidth]{\logo@default}%
+    \if@umit % no TUD Logo on every page for coorperation talks
+	\else
+		\includegraphics[width=\tudbeamer@logowidth]{\logo@default}%
+	\fi
     \hskip\tudbeamer@logoleftmargin%
     \usebeamercolor[fg]{section in head/foot}%
     \usebeamerfont{section in head/foot}%
