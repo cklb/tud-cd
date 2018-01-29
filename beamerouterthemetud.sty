@@ -296,7 +296,7 @@
     \usebeamercolor[fg]{section in head/foot}%
     \usebeamerfont{section in head/foot}%
     \ifx\insertsection\empty
-      \strut\hfill
+		\strut\hfill
 	\else 
 		\arabic{section}~- \insertsection\strut
 		\ifx\insertsubsection\empty
@@ -304,37 +304,26 @@
 		\else
 			\hfill\insertsubsection\hspace{1em}
 		\fi
-		%\ifx\insertframetitle\empty
-		%	\strut\hfill
-		%\else
-		%	: \insertsubsection\strut
-		%	: \insertframetitle\strut
-		%\fi
+	%	%\ifx\insertframetitle\empty
+	%	%	\strut\hfill
+	%	%\else
+	%	%	: \insertsubsection\strut
+	%	%	: \insertframetitle\strut
+	%	%\fi
     \fi
     \par
     \vfill
   }%
-  \dimen0=\paperwidth
-  \multiply\dimen0 by \insertframenumber
-  \divide\dimen0 by \inserttotalframenumber
-  \edef\progressbarwidth{\the\dimen0}
-  \multiply\dimen0 by -1
-  \advance\dimen0 by \paperwidth
-  \edef\progressleftbarwidth{\the\dimen0}
-  \leavevmode
   \vskip0.01\paperheight
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.025\paperheight]{progress bar}
-    \begin{beamercolorbox}[wd=\progressbarwidth,ht=0.025\paperheight]{progress bar progress}
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.025\paperheight]{progress bar}
-        \vskip0.3pt
-        \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.3pt]{progress bar left progress}
-        \end{beamercolorbox}
-        \vskip0.023\paperheight
-        \begin{beamercolorbox}[wd=\progressleftbarwidth, ht=0.3pt]{progress bar left progress}
-        \end{beamercolorbox}%
-    \end{beamercolorbox}%
-  \end{beamercolorbox}
+  \leavevmode
+  \newdimen\pblen
+  \pblen=\dimexpr\paperwidth\relax
+  \pblen=\dimexpr\pblen * \insertframenumber\relax
+  \pblen=\dimexpr\pblen / \insertpresentationendframe\relax
+  \edef\progressbarwidth{\the\pblen}
+  \tikz \fill [HKS92K80] (0, 0) rectangle (\paperwidth, 0.3pt);
+  \tikz \fill [HKS41K90] (0, 0) rectangle (\progressbarwidth, 0.025\paperheight);
+  \tikz \fill [HKS92K80] (0, 0) rectangle (\paperwidth, 0.3pt);
 }[action]{
   \tudbeamer@calcsizes[0.125]%
 }
