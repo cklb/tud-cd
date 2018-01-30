@@ -315,15 +315,31 @@
     \vfill
   }%
   \vskip0.01\paperheight
-  \leavevmode
   \newdimen\pblen
   \pblen=\dimexpr\paperwidth\relax
-  \pblen=\dimexpr\pblen * \insertframenumber\relax
-  \pblen=\dimexpr\pblen / \insertpresentationendframe\relax
+	\ifx\insertframenumber\empty
+	\else
+		\ifx\insertpresentationendframe\empty
+		\else
+		  \pblen=\dimexpr\pblen * \insertframenumber\relax
+		  \pblen=\dimexpr\pblen / \insertpresentationendframe\relax
+		\fi
+	\fi
   \edef\progressbarwidth{\the\pblen}
+  \pblen=\dimexpr\paperwidth - \dimexpr\pblen\relax
+  \edef\progressbarwidthr{\the\pblen}
   \tikz \fill [HKS92K80] (0, 0) rectangle (\paperwidth, 0.3pt);
   \tikz \fill [HKS41K90] (0, 0) rectangle (\progressbarwidth, 0.025\paperheight);
+  % add completely empty node to trigger lien break -> not amazing
+  \tikz \node (rect) at (0,0) [
+	  fill=none, 
+	  draw=none, 
+	  minimum width=\paperwidth, 
+	  minimum height=0mm,
+	  inner sep=0mm] {
+  };
   \tikz \fill [HKS92K80] (0, 0) rectangle (\paperwidth, 0.3pt);
+  \leavevmode
 }[action]{
   \tudbeamer@calcsizes[0.125]%
 }
