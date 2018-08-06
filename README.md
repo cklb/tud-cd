@@ -1,50 +1,83 @@
 tud-cd
 ======
 
-Corporate Design der TU Dresden – inoffizielles Repository
+Testversion – Hinweis
+---------------------
 
-In diesem Verzeichnis liegen ein Beamer-Stil, die Vorlagen für Poster
-der Fachrichtung Mathematik und ein Paket für Preprint-Titelseiten des
-Instituts für Algebra der TU Dresden.
+Am 1. Februar traten umfangreiche Änderungen zum Corporate Design der
+TU Dresden in Kraft. Dazu wurde auch der Beamerstil angepasst. Näheres
+können Sie in der Beispieldatei
+https://github.com/tud-cd/tud-cd/raw/master/doc/latex/tud-beamerstyle/beamerpraesentation8pt.pdf
+nachlesen.
+
+Diese Änderungen befinden sich derzeit in der Testphase. Sollten
+Probleme auftreten, finden Sie unter dem Tag cd2012ts
+(https://github.com/tud-cd/tud-cd/archive/cd2012ts.zip) die letzte
+Fassung vor den Änderungen.
+
+Corporate Design der TU Dresden – inoffizielles Repository
+----------------------------------------------------------
+
+In diesem Verzeichnis liegen ein Beamer-Stil, die (inzwischen
+veralteten) Vorlagen für Poster der Fachrichtung Mathematik und ein
+(ebenfalls veraltetes) Paket für Preprint-Titelseiten des Instituts
+für Algebra der TU Dresden.
+
+Die Posterklasse wurde notdürftig an die Bedürfnisse von OpenSans
+angepasst. Ein Beispiel für die Benutzung liefert beispiel-utf8.tex.
 
 Installation: 
 
 1. Zunächst müssen die Schriften des Corporate Design der TU Dresden
-   installiert sein. Die Rohschriften müssen per Email angefordert
-   werden.
-
-   Informationen dazu sind unter der Adresse 
-   http://tu-dresden.de/service/publizieren/cd/4_latex
-   erhältlich.
-
-   Der Präsentationsstil wurde noch unter der
-   Verwendung der alten Schriftdateien erstellt.
-   Ein Installationsskript findet sich unter der Adresse
-   https://github.com/tud-cd/tudscrold/releases/tag/fonts
+   installiert sein.
    
-   Es wird jedoch empfohlen, für Beamer-Präsentationen stattdessen die
-   Schriften so zu installieren, wie es das aktuelle tudscr-Paket
-   empfiehlt: http://www.ctan.org/pkg/tudscr
-   Als Beispiel sei hier beamerpraesentation-tudscrfonts.tex genannt.
+   + Für das seit Februar 2018 gültige Corporate Design genügt es das 
+	 OpenSans-Paket Ihrer LaTeX-Distribution zu installieren.
+   
+   + Die alten Rohschriften Univers und DIN werden nur benötigt, wenn
+	 älteren Dokumente ohne Änderungen neu übersetzt werden, und wenn
+	 diese Schriften tatsächlich verwendet wurden. Sie mussten per
+	 Email angefordert werden. Bei Änderungen und neu erstellten
+	 Dokumenten sollte auf das aktuelle Corporate Design umgestellt werden.
 
-   Allerdings konnte die letztere Variation noch nicht getestet werden. 
+	 Der Präsentationsstil kann sowohl mit der alten Variante der Fonts,
+     als auch mit den verbesserten Fonts aus dem TUD-Script-Bundle
+     verwendet werden. Die anderen Vorlagen verwenden die alten Schriften
+     Installationsskripte sind unter 
+     +     https://github.com/tud-cd/tudscr/releases/tag/fonts (neu)
+     +     https://github.com/tud-cd/tudscr/releases/tag/oldfonts (alt)
+     zu finden.
+   
+     Es wird jedoch empfohlen, für Beamer-Präsentationen stattdessen die
+     Schriften so zu installieren, wie es das aktuelle tudscr-Paket
+     empfiehlt: http://www.ctan.org/pkg/tudscr
+     Als Beispiel sei hier beamerpraesentation-tudscrfonts.tex genannt.
+
    Fehlermeldungen und Anregungen sind auf https://github.com/tud-cd/tud-cd/issues herzlich willkommen.
 
-2. Wenn die Schriften installiert sind und das Paket in ein Verzeichnis entpackt
-   worden ist, sollten die Klasse für alle Dateien in diesem Verzeichnis zur 
-   Verfügung stehen.
+2. Das Paket ist entsprechend dem TeX-Standard aufgebaut. Die
+   einzelnen Dateien können für die einmalige Verwendung in das
+   jeweilige Arbeitsverzeichnis kopeirt werden. Bei häufiger
+   Verwendung wird die systemweite oder die Nutzerspezifische
+   Installation empfohlen.
 
 3. Soll die Klasse für alle Dokumente eines Nutzers zur Verfügung stehen, müssen
-   nur die benötigten Dateien (Klasse+Logos) in das lokale texmf-Verzeichnis
-   kopiert werden:
-	*nix (incl. macports): ~/texmf/tex/latex/tudmathposter
-	MacTeX: ~/Library/texmf/tex/latex/tudmathposter
-	MikTeX: ...\Dokumente und Einstellungen\<Benutzername>\texmf\tex\latex\tudmathposter
+   nur die benötigten Dateien und Verzeichnisse (Klasse+Logos) in das lokale texmf-Verzeichnis
+   entpackt werden:
+   +	*nix (incl. macports): ~/texmf/
+   +	MacTeX: ~/Library/texmf/
+   +	MikTeX: ...\Dokumente und Einstellungen\<Benutzername>\texmf\
+   
+   Im Zweifel kann man sich mit `kpsewhich --var-value=TEXMF --progname=pdflatex` 
+   den Suchpfad ansehen. Der Inhalt dieses Repositories muss in einem dieser
+   Verzeichnisse entpackt werden. Dabei muss die Verzeichnisstruktur eingehalten werden,
+   so dass beispielsweise das Verzeichnis tex/latex/tud-beamerstyle im Unterverzeichnis
+   mit selbem Namen landet.
 
 4. Die Dokumentation der Klassen, Stile und Pakete befindet sich in
-   den beigefügten PDF-Dateien.  Die wichtigsten sind
-   beamer-org-mode-demo.pdf (Beamer-Stil), beispiel-utf8.pdf
-   (tudmathposter) und algpreprint.sty (algpreprint).
+   den beigefügten PDF-Dateien im Unterordner doc. Die wichtigsten sind
+   tud-beamerstyle/beamer-org-mode-demo.pdf (Beamer-Stil), tudmathposter/beispiel-utf8.pdf
+   (tudmathposter) und die Quelldatei tex/latex/tudmathposter/algpreprint.sty (algpreprint).
 
 Zum Download finden Sie auf https://github.com/tud-cd/tud-cd auf der
 rechten Seite einen unscheinbaren Knopf mit der Aufschrift „Download
@@ -60,9 +93,7 @@ Versionen:
 	stehen jetzt vor der Kapitelüberschrift und nicht mehr vor der
 	Folienüberschrift. Seiten können nach Folien- oder Seitenzahl
 	nummeriert werden. Für Entwicklungszwecke gibt es die Möglichkeit,
-	innerhalb einer Folie die Bildnummern anzeigen zu lassen. Die
-	Dokumentation ist nicht mehr so sauber, wie bisher und Support ist
-	reine Kulanzssache.
+	innerhalb einer Folie die Bildnummern anzeigen zu lassen.
 
 1.11 (07.07.2011)
 	Da er sowieso mal einer Auffrischung bedurfte habe ich meinen
